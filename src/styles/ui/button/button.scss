@@ -1,0 +1,23 @@
+@import '../base.scss';
+
+button[class*="full"]{
+  transition: all 0.5s;
+  padding: 10px 0;
+  width: 100px;
+  border: 1px solid $base-border-color;
+  color: $base-color;
+  text-align: center;
+  border-radius: 5px;
+  cursor: pointer;
+  background: $base-bg-color;
+  &:hover{
+    transition: all 0.3s;
+    box-shadow: 0px 0px 14px 5px $base-shadow-color;
+  }
+}
+
+button[class*="full"][data-size="small"]{
+  @extend button[class*="full"];
+  padding: 5px 0;
+  width: 50px;
+}

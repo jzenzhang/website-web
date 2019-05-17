@@ -1,0 +1,22 @@
+@import '../base.scss';
+
+.input{
+  display: block;
+  width: 200px;
+  height: 30px;
+  padding: 0 5px;
+  margin: 5px 0;
+  border: 1px solid $base-border-color;
+  border-radius: 5px;
+}
+.input:focus{
+  animation: borderAnimate 0.8s infinite alternate;
+}
+@keyframes borderAnimate{
+  0%{
+    box-shadow: 0 0 0px 0 $base-border-color;
+  }
+  100%{
+    box-shadow: 0 0 10px 0 $base-border-color
+  }
+}

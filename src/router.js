@@ -12,7 +12,7 @@ function RouterPage() {
     <Router history={history}>
       <Switch>
         <Route exact path="/" component={HomePage}></Route>
-        <Route path="/aboutme" component={About}></Route>
+        <Route path="/about-me" component={About}></Route>
       </Switch>
     </Router>
   )

@@ -1,10 +1,16 @@
 import React, { PureComponent } from 'react'
 import { Link } from 'react-router-dom'
 import Bg from '../components/HomePage/bg'
+import LoginComponent from '../components/login'
 import './index.scss'
-
+@LoginComponent
 class HomePage extends PureComponent {
-  login() {
+  constructor(props) {
+    super(props)
+  }
+
+  login = () => {
+    this.Login.show()
     fetch('/api/user').then(res => {
       console.log(res);
 
@@ -15,11 +21,10 @@ class HomePage extends PureComponent {
       <div className='home'>
         <Bg></Bg>
         <div className="center">
-          <button className="article full">文章</button>
-          <Link to="/aboutme" className="aboutme button"><button className="full">关于我</button></Link>
+          <button className="article button full">文章</button>
+          <Link to="/about-me" className="about-me button"><button className="button full">关于我</button></Link>
           <nav className="nav">
-            <span onClick={this.login} className="login a">登录</span>
-            <span className="register a">注册</span>
+            <span onClick={this.login} className="login a" data-size="small">登录</span>
           </nav>
         </div>
       </div>

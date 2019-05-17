@@ -1,0 +1,48 @@
+.login-box{
+    position: fixed;
+    top: 50%;
+    left: 50%;
+		z-index: 9999;
+		padding: 30px 50px 30px;
+		background: #ffffff;
+		border-radius: 5px;
+    transform: translate(-50%, -50%);
+    animation: animate 0.3s;
+		animation-fill-mode: forwards;
+		.button{
+			margin: 10px 0 0 10px;
+		}
+		.login{
+			font-size: 12px;
+		}
+		.tag{
+			margin: 10px 0 0;
+			text-align: center;
+		}
+}
+.remove{
+	animation: removeAnimate 0.5s;
+	animation-fill-mode: forwards;
+}
+@keyframes removeAnimate{
+   0%{
+		 opacity: 1;
+			top: 50%;
+	 }
+   100%{
+		opacity: 0;
+			top: -100%;
+			left: 50%;
+   }
+}
+@keyframes animate{
+   0%{
+			opacity: 0;
+			top: 30%;
+			left: 50%;
+	 }
+   100%{
+		 opacity: 1;
+			top: 50%;
+   }
+}

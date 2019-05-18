@@ -14,7 +14,7 @@
 }
 @keyframes borderAnimate{
   0%{
-    box-shadow: 0 0 0px 0 $base-border-color;
+    box-shadow: 0 0 1px 0 $base-border-color;
   }
   100%{
     box-shadow: 0 0 10px 0 $base-border-color

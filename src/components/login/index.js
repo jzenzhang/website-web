@@ -8,8 +8,6 @@ let obj = ''
 
 function unmounted() {
   div.classList.add('remove')
-  // ReactDOM.unmountComponentAtNode(div)
-  // document.body.removeChild(div)
 }
 
 

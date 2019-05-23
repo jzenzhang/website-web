@@ -22,7 +22,7 @@
 		}
 }
 .remove{
-	animation: removeAnimate 0.5s;
+	animation: removeAnimate 0.3s;
 	animation-fill-mode: forwards;
 }
 @keyframes removeAnimate{
@@ -32,7 +32,7 @@
 	 }
    100%{
 		opacity: 0;
-			top: -100%;
+			top: 30%;
 			left: 50%;
    }
 }
@@ -43,7 +43,7 @@
 			left: 50%;
 	 }
    100%{
-		 opacity: 1;
-			top: 50%;
+	opacity: 1;
+	top: 50%;
    }
 }

@@ -4,7 +4,7 @@ import { Provider } from 'mobx-react';
 
 import store from '../../store/index'
 import Login from './login'
-import './login.scss'
+
 
 let div = {}
 
@@ -17,16 +17,16 @@ function unmounted() {
 }
 
 
-function createElement() {
+function createElement(type) {
   div = document.createElement('div')
   div.className = 'login-box'
   document.body.appendChild(div)
-  ReactDOM.render(<Provider store={store}><Login cancel={unmounted} /></Provider>, div)
+  ReactDOM.render(<Provider store={store}><Login type={type} cancel={unmounted} /></Provider>, div)
 }
 
 const params = {
-  show() {
-    return createElement()
+  show(type) {
+    return createElement(type)
   },
   hide() {
     return unmounted()

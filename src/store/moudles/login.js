@@ -11,6 +11,30 @@ class Login {
     })
   }
 
+  @action register = (data) => {
+    return new Promise((resolve) => {
+      fetchApi('/api/register', {
+        data
+      }).then(res => {
+        if (res.success) {
+          this.userInfo.userName = res.data.userName
+          this.changeLogin(true)
+        }
+        resolve(res)
+      })
+    })
+  }
+
+  @action checkName = (data) => {
+    return new Promise((resolve) => {
+      fetchApi('/api/login/checkName', {
+        data
+      }).then(res => {
+        resolve(res)
+      })
+    })
+  }
+
   @action uuidLogin = () => {
     return new Promise((resolve) => {
       fetchApi('/api/login/uuid', {}).then((res) => {

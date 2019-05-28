@@ -4,77 +4,76 @@ import './bg.scss'
 class Bg extends PureComponent {
   constructor() {
     super()
-    this.width = document.body.clientWidth
-    this.height = document.body.clientHeight
+    this.WIDTH = document.body.clientWidth
+    this.HEIGHT = document.body.clientHeight
   }
   creating = () => {
     const canvas = this.bg
+
+    // 实例化参数
     var content = canvas.getContext('2d'),
-      initRoundPopulation = 15,
+      number = 15,
       round = [],
-      pause = [],
-      width = document.body.clientWidth,
-      height = document.body.clientHeight,
-      pagex = 0,
-      pagey = 0
+      X = 0,
+      Y = 0
 
+    const WIDTH = document.body.clientWidth, HEIGHT = document.body.clientHeight
+
+    // 点击事件
     canvas.onclick = function (e) {
-      pagex = e.pageX
-      pagey = e.pageY
+      X = e.pageX
+      Y = e.pageY
 
-      round.push(initRoundPopulation++)
-      round[round.length - 1] = new Round_item(round.length - 1, pagex, pagey);
-      console.log(round.length - 1);
-
+      round.push(number++)
+      round[round.length - 1] = new Round_item(round.length - 1, X, Y);
       round[round.length - 1].draw();
-
     }
 
+    // 单个圆的构造函数
     function Round_item(index, x, y) {
       this.index = index;
       this.x = Math.floor(x);
       this.y = Math.floor(y);
-      this.r = 3;
       this.pauseStatus = false
       var alpha = (Math.floor(Math.random() * 10) + 1) / 10 / 2;
       this.color = "rgba(255,255,255," + alpha + ")";
     }
 
+    // 渲染函数
     Round_item.prototype.draw = function () {
       content.fillStyle = this.color;
       content.shadowBlur = this.r * 2;
       content.beginPath();
-      content.arc(this.x, this.y, this.r + 100, 0, 2 * Math.PI, false);
+      content.arc(this.x, this.y, 100, 0, 2 * Math.PI, false);
       content.closePath();
       content.fill();
     }
 
-    Round_item.prototype.pause = function () {
-      this.y = this.y
-      this.draw()
-    }
+    // 移动函数
 
     Round_item.prototype.move = function () {
       this.y -= 0.15;
       if (this.y <= -100) {
-        this.x = Math.random() * width
-        this.y = height + 100;
+        this.x = Math.random() * WIDTH
+        this.y = HEIGHT + 100;
       }
       this.draw();
     }
 
+    // 渲染
+
     function animate() {
-      content.clearRect(0, 0, width, height)
+      content.clearRect(0, 0, WIDTH, HEIGHT)
       for (var i in round) {
         round[i].move();
       }
-      // animate()
       requestAnimationFrame(animate)
     }
 
+    // 初始化
     function init() {
-      for (var i = 0; i < initRoundPopulation; i++) {
-        round[i] = new Round_item(i, Math.random() * width, Math.random() * height);
+      for (var i = 0; i < number; i++) {
+        round[i] = new Round_item(i, Math.random() * WIDTH, Math.random() * HEIGHT);
         round[i].draw(i);
       }
       animate()
@@ -88,7 +87,7 @@ class Bg extends PureComponent {
 
   render() {
     return (
-      <canvas width={this.width} height={this.height} ref={(ref) => this.bg = ref} id="bg"></canvas>
+      <canvas WIDTH={this.WIDTH} HEIGHT={this.HEIGHT} ref={(ref) => this.bg = ref} id="bg"></canvas>
     )
   }
 }

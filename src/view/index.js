@@ -38,8 +38,6 @@ class HomePage extends Component {
     this.store.logout()
   }
   render() {
-    console.log(this);
-
     return (
       <div className='home'>
         <Bg></Bg>

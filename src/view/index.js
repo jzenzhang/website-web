@@ -39,23 +39,26 @@ class HomePage extends Component {
   }
   render() {
     return (
-      <div className='home'>
+      <div className='home-box'>
         <Bg></Bg>
-        <div className="center">
-          <button className="article button full">文章</button>
-          <Link to="/about-me" className="about-me button"><button className="button full">关于我</button></Link>
-          <nav className="nav">
-            {
-              this.store.loginStatus ?
-                <div>欢迎！<i>{this.store.userInfo.userName}</i> <span onClick={this.logout} className="login a" data-size="small">退出</span></div> :
-                <div>
-                  <span onClick={this.register} className="login a" data-size="small">创建用户</span>
+        <div className="home">
+          <p className="slogan web-font">路漫漫其修远兮，吾将上下而求索。</p>
+          <div className="center">
+            <button className="article button full">文章</button>
+            <Link to="/about-me" className="about-me button"><button className="button full">关于我</button></Link>
+            <nav className="nav">
+              {
+                this.store.loginStatus ?
+                  <div>欢迎！<i>{this.store.userInfo.userName}</i> <span onClick={this.logout} className="login a" data-size="small">退出</span></div> :
+                  <div>
+                    <span onClick={this.register} className="login a" data-size="small">创建用户</span>
 
-                  <span onClick={this.login} className="login a" data-size="small">登录</span>
+                    <span onClick={this.login} className="login a" data-size="small">登录</span>
 
-                </div>
-            }
-          </nav>
+                  </div>
+              }
+            </nav>
+          </div>
         </div>
       </div>
     )

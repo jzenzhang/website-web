@@ -1,0 +1,54 @@
+.toast-box {
+  position: fixed;
+  top: 15%;
+  left: 50%;
+  z-index: 999999999;
+  background: #ffffff;
+  border-radius: 5px;
+  padding: 5px 10px;
+  transform: translate(-50%, -50%);
+  animation: animate 0.5s;
+  animation-fill-mode: forwards;
+  box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.1);
+  .toast {
+    font-size: 12px;
+    .info,
+    .error {
+      margin-right: 5px;
+      font-size: 16px;
+    }
+    .info {
+      color: #67c23a;
+    }
+    .error {
+      margin-right: 5px;
+      color: #f56c6c;
+    }
+  }
+}
+.remove {
+  animation: remove 0.3s;
+  animation-fill-mode: forwards;
+}
+
+@keyframes remove {
+  0% {
+    opacity: 1;
+    top: 15%;
+  }
+  100% {
+    opacity: 0;
+    top: 10%;
+  }
+}
+@keyframes animate {
+  0% {
+    opacity: 0;
+    top: 10%;
+    left: 50%;
+  }
+  100% {
+    opacity: 1;
+    top: 15%;
+  }
+}

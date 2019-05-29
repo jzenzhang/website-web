@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { observer, inject } from 'mobx-react';
 import cs from 'classnames'
+import Toast from '../Toast'
 import './login.scss'
 @inject('store')
 @observer
@@ -60,6 +61,7 @@ class Login extends Component {
       passWord: this.state.password
     }).then(res => {
       if (res.success) {
+        Toast.info(res.msg)
         this.props.cancel()
       }
     })
@@ -72,6 +74,7 @@ class Login extends Component {
     }).then((res) => {
       if (res.success) {
         this.props.cancel()
+        Toast.info(res.msg)
       }
     })
   }

@@ -4,6 +4,7 @@ import Bg from '../components/HomePage/bg'
 import LoginComponent from '../components/login'
 import { inject, observer } from 'mobx-react';
 import $z from 'z-formatter'
+import Toast from '../components/Toast'
 import './index.scss'
 
 @inject('store')
@@ -26,7 +27,9 @@ class HomePage extends Component {
   componentDidMount() {
     const cookie = $z.getCookie('uuid')
     if (cookie) {
-      this.store.uuidLogin()
+      this.store.uuidLogin().then(res => {
+        Toast.info(res.msg)
+      })
     }
   }
 
@@ -35,7 +38,9 @@ class HomePage extends Component {
     this.LoginComponent.show('register')
   }
   logout = () => {
-    this.store.logout()
+    this.store.logout().then(res => {
+      Toast.info(res.msg)
+    })
   }
   render() {
     return (

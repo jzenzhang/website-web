@@ -6,7 +6,7 @@ import toast from './Toast.module.scss'
 
 
 function createElement(type, text, time) {
-  let div = Symbol()
+  let div = ''
   div = document.createElement('div')
   div.className = toast['toast-box']
   document.body.appendChild(div)

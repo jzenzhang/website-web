@@ -17,19 +17,13 @@ class HomePage extends Component {
 
   @LoginComponent
   login = () => {
-    this.store.uuidLogin().then((res) => {
-      if (!res.success) {
-        this.LoginComponent.show()
-      }
-    })
+    this.LoginComponent.show()
   }
 
   componentDidMount() {
     const cookie = $z.getCookie('uuid')
     if (cookie) {
-      this.store.uuidLogin().then(res => {
-        Toast.info(res.msg)
-      })
+      this.store.uuidLogin()
     }
   }
 

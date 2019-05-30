@@ -5,23 +5,26 @@ import { Provider } from 'mobx-react';
 import store from '../../store/index'
 import Login from './login'
 
-
-let div = {}
-
 function unmounted() {
   div.classList.add('remove')
   setTimeout(() => {
     ReactDOM.unmountComponentAtNode(div)
     document.body.removeChild(div)
+    div = ''
   }, 300)
 }
 
+let div = ''
 
 function createElement(type) {
+  if (div) {
+    return
+  }
   div = document.createElement('div')
   div.className = 'login-box'
   document.body.appendChild(div)
   ReactDOM.render(<Provider store={store}><Login type={type} cancel={unmounted} /></Provider>, div)
+  return div
 }
 
 const params = {

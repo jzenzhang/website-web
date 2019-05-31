@@ -44,6 +44,7 @@ class Login extends Component {
   }
 
   confirmPassword = () => {
+    window.scroll(0, 0)
     this.setState({
       confirmPassword: this.state.password === this.state.rewritePassword
     })
@@ -66,7 +67,9 @@ class Login extends Component {
       }
     })
   }
-
+  reset = () => {
+    window.scroll(0, 0)
+  }
   login = async () => {
     this.store.usernameLogin({
       userName: this.state.userName,
@@ -83,10 +86,10 @@ class Login extends Component {
       <div className="login">
         <div className={cs({ 'username-info': !this.state.checkStatus })}>
           <p>用户名:</p>
-          <input value={this.state.userName} onChange={this.userNameChange} className={cs('input', { username: !this.state.checkStatus })}></input>
+          <input value={this.state.userName} onBlur={this.reset} onChange={this.userNameChange} className={cs('input', { username: !this.state.checkStatus })}></input>
         </div>
         <p>密码:</p>
-        <input type="password" value={this.state.password} onChange={this.passwordChange} className="input"></input>
+        <input type="password" value={this.state.password} onBlur={this.reset} onChange={this.passwordChange} className="input"></input>
         {
           this.props.type === 'register' ?
             <div className={cs({ 'rewrite-password-info': !this.state.confirmPassword })}>

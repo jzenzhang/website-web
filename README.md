@@ -1,6 +1,5 @@
 
-[访问地址](http://106.14.225.234) 
-*（域名备案还没有批下来，所以只能使用IP访问）*
+[访问地址](http://www.jzen.top) 
 
 ### 个人网站（前端）
 ![123](https://img.shields.io/badge/react-16.8.6-blue.svg) ![](https://img.shields.io/badge/mobx-5.9.4-blue.svg) ![](https://img.shields.io/badge/z--formatter-1.3.3-blue.svg)

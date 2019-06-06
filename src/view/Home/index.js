@@ -1,15 +1,15 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
-import Bg from '../components/HomePage/bg'
-import LoginComponent from '../components/login'
+import Bg from '../../components/Bg/index'
+import LoginComponent from '../../components/login'
 import { inject, observer } from 'mobx-react';
 import $z from 'z-formatter'
-import Toast from '../components/Toast'
+import Toast from '../../components/Toast'
 import './index.scss'
 
 @inject('store')
 @observer
-class HomePage extends Component {
+class Home extends Component {
   constructor(props) {
     super(props)
     this.store = this.props.store.login
@@ -63,4 +63,4 @@ class HomePage extends Component {
     )
   }
 }
-export default HomePage
+export default Home

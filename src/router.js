@@ -1,20 +1,13 @@
 import React from 'react'
-import { Router, Route, Switch } from 'react-router'
-import { createBrowserHistory } from 'history'
+import { BrowserRouter, Route } from 'react-router-dom'
 
-import HomePage from './view'
-import About from './view/about/about'
-
-const history = createBrowserHistory()
+import HomeLayout from './layout/Home'
 
 function RouterPage() {
   return (
-    <Router history={history}>
-      <Switch>
-        <Route exact path="/" component={HomePage}></Route>
-        <Route path="/about-me" component={About}></Route>
-      </Switch>
-    </Router>
+    <BrowserRouter>
+      <Route exact path="/" component={HomeLayout}></Route>
+    </BrowserRouter>
   )
 }
 

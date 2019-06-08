@@ -9,7 +9,7 @@ class Footer extends Component {
     return (
       <div className={styles.footer}>
         <p><a href="mailto:jzenzhang@163.com">jzenzhang@163.com</a></p>
-        <p><a target="_block" href='http://www.beian.gov.cn'>京ICP备19023743号</a></p>
+        <p><a target="_block" href='http://www.beian.miit.gov.cn/'>京ICP备19023743号</a></p>
       </div>
     )
   }

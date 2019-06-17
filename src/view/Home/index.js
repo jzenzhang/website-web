@@ -44,7 +44,7 @@ class Home extends Component {
           <p className="slogan web-font">路漫漫其修远兮，吾将上下而求索。</p>
           <div className="center">
             <button className="article button full">文章</button>
-            <Link to="/about-me" className="about-me button"><button className="button full">关于我</button></Link>
+            <Link to="/" className="about-me button"><button className="button full">关于我</button></Link>
             <nav className="nav">
               {
                 this.store.loginStatus ?

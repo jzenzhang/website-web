@@ -8,7 +8,7 @@ class ToastComponent extends PureComponent {
     return (
       <div className={toast.toast}>
         {
-          this.props.type === 'info' ? <span className={`${toast.info} iconfont`}>&#xe62f;</span> : <span className={`${toast.error} iconfont`}>&#xe6c5;</span>
+          this.props.type === 'info' ? <span className={`${toast.info} iconfont icon-success_circle`}></span> : <span className={`${toast.error} iconfont icon-shibaibaocuo`}></span>
         }
 
         {this.props.text}

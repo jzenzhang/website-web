@@ -10,7 +10,17 @@ export function drag(Components, props) {
         right: false
       }
     }
+
+    drag(e) {
+      e.target.style.opacity = 0.4
+    }
+    end(e) {
+      console.log(e.target.getBoundingClientRect());
+
+    }
     down(e) {
+      console.info(e);
+
       e.stopPropagation();
       document.onmousemove = (event) => {
         this.ref.style.left = event.clientX - 20 + 'px'
@@ -37,7 +47,7 @@ export function drag(Components, props) {
     }
     render() {
       return (
-        <div onMouseUp={e => this.up(e)} onMouseDown={e => this.down(e)} ref={ref => this.ref = ref} className={styles.drag} style={props}>
+        <div draggable="true" onDragStart={e => this.drag(e)} onDragEnd={e => this.end(e)} ref={ref => this.ref = ref} className={styles.drag} style={props}>
           <Components props={props} />
         </div>
       )

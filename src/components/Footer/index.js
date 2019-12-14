@@ -8,7 +8,7 @@ class Footer extends Component {
   render() {
     return (
       <div className={styles.footer}>
-        <p><a href="mailto:jzenzhang@163.com">jzenzhang@163.com</a></p>
+        <p><a href="mailto:jzenzhang@foxmail.com">jzenzhang@foxmail.com</a></p>
         <p><a target="_block" href='http://www.beian.miit.gov.cn/'>京ICP备19023743号</a></p>
       </div>
     )

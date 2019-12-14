@@ -43,17 +43,15 @@ class Home extends Component {
         <div className="home">
           <p className="slogan web-font">路漫漫其修远兮，吾将上下而求索。</p>
           <div className="center">
-            <button className="article button full">文章</button>
-            <Link to="/" className="about-me button"><button className="button full">关于我</button></Link>
+            <a className="article button full" target="_blank" href="https://jzenzhang.gitee.io/">博客</a>
+            <a className="button full" target="_blank" href="https://www.notion.so/jzen/8445d260d65d4722b29a5ccfa36fede4">笔记</a>
             <nav className="nav">
               {
                 this.store.loginStatus ?
                   <div>欢迎！<i>{this.store.userInfo.userName}</i> <span onClick={this.logout} className="login a" data-size="small">退出</span></div> :
                   <div>
                     <span onClick={this.register} className="login a" data-size="small">创建用户</span>
-
                     <span onClick={this.login} className="login a" data-size="small">登录</span>
-
                   </div>
               }
             </nav>

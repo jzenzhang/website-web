@@ -45,6 +45,7 @@ class Home extends Component {
           <div className="center">
             <a className="article button full" target="_blank" href="https://jzenzhang.gitee.io/">博客</a>
             <a className="button full" target="_blank" href="https://www.notion.so/jzen/8445d260d65d4722b29a5ccfa36fede4">笔记</a>
+            <a className="button full" target="_blank" href="https://codepen.io/jzenzhang">codePen</a>
             <nav className="nav">
               {
                 this.store.loginStatus ?

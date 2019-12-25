@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import { Link } from 'react-router-dom'
 import Bg from '../../components/Bg/index'
 import LoginComponent from '../../components/login'
 import { inject, observer } from 'mobx-react';
@@ -31,6 +30,7 @@ class Home extends Component {
   register = () => {
     this.LoginComponent.show('register')
   }
+
   logout = () => {
     this.store.logout().then(res => {
       Toast.info(res.msg)

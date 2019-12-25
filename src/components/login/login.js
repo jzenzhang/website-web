@@ -3,63 +3,61 @@ import { observer, inject } from 'mobx-react';
 import cs from 'classnames'
 import Toast from '../Toast'
 import './login.scss'
+import { observable } from 'mobx';
+
+// 注入store
 @inject('store')
+// 声明响应式组件
 @observer
 class Login extends Component {
+  // 声明响应式属性
+  @observable userInfo = {
+    userName: '',
+    password: '',
+    checkStatus: true,
+    rewritePassword: '',
+    confirmPassword: true
+  }
+
   constructor(props) {
     super(props)
-    this.store = this.props.store.login
-    this.state = {
-      userName: '',
-      password: '',
-      checkStatus: true,
-      confirmPassword: true
-    }
+    // 获取对应的store
+    this.loginModules = this.props.store.login
   }
   userNameChange = (e) => {
-    this.setState({
-      userName: e.target.value
-    })
+    this.userInfo.userName = e.target.value
   }
   passwordChange = (e) => {
-    this.setState({
-      password: e.target.value
-    })
+    this.userInfo.password =  e.target.value
   }
   rewritePasswordChange = (e) => {
-    this.setState({
-      rewritePassword: e.target.value
-    })
+    this.userInfo.rewritePassword = e.target.value
   }
 
   checkName = () => {
-    return this.store.checkName({
-      userName: this.state.userName
+    return this.loginModules.checkName({
+      userName: this.userInfo.userName
     }).then(res => {
-      this.setState({
-        checkStatus: res.success
-      })
+      this.userInfo.checkStatus = res.success
       return Promise.resolve(res)
     })
   }
 
   confirmPassword = () => {
     window.scroll(0, 0)
-    this.setState({
-      confirmPassword: this.state.password === this.state.rewritePassword
-    })
+    this.userInfo.confirmPassword = this.userInfo.password === this.userInfo.rewritePassword
   }
 
-  async register() {
+   register = async () => {
     var res = await this.checkName()
     if (!res.success) {
       return
     }
     this.confirmPassword()
-    if (!this.state.checkStatus || !this.state.confirmPassword) return
-    this.store.register({
-      userName: this.state.userName,
-      passWord: this.state.password
+    if (!this.userInfo.checkStatus || !this.userInfo.confirmPassword) return
+    this.loginModules.register({
+      userName: this.userInfo.userName,
+      passWord: this.userInfo.password
     }).then(res => {
       if (res.success) {
         Toast.info(res.msg)
@@ -70,10 +68,12 @@ class Login extends Component {
   reset = () => {
     window.scroll(0, 0)
   }
-  login = async () => {
-    this.store.usernameLogin({
-      userName: this.state.userName,
-      passWord: this.state.password
+  login = () => {
+    console.log(this);
+    
+    this.loginModules.usernameLogin({
+      userName: this.userInfo.userName,
+      passWord: this.userInfo.password
     }).then((res) => {
       if (res.success) {
         this.props.cancel()
@@ -84,23 +84,22 @@ class Login extends Component {
   render() {
     return (
       <div className="login">
-        <div className={cs({ 'username-info': !this.state.checkStatus })}>
+        <div className={cs({ 'username-info': !this.userInfo.checkStatus })}>
           <p>用户名:</p>
-          <input value={this.state.userName} onBlur={this.reset} onChange={this.userNameChange} className={cs('input', { username: !this.state.checkStatus })}></input>
+          <input value={this.userInfo.userName} onBlur={this.reset} onChange={this.userNameChange} className={cs('input', { username: !this.userInfo.checkStatus })}></input>
         </div>
         <p>密码:</p>
-        <input type="password" value={this.state.password} onBlur={this.reset} onChange={this.passwordChange} className="input"></input>
+        <input type="password" value={this.userInfo.password} onBlur={this.reset} onChange={this.passwordChange} className="input"></input>
         {
           this.props.type === 'register' ?
-            <div className={cs({ 'rewrite-password-info': !this.state.confirmPassword })}>
+            <div className={cs({ 'rewrite-password-info': !this.userInfo.confirmPassword })}>
               <p>确认密码:</p>
-              <input type="password" value={this.state.rewritePassword} onBlur={this.confirmPassword} onChange={this.rewritePasswordChange} className={cs('input', { 'rewrite-password': !this.state.confirmPassword })}></input>
+              <input type="password" value={this.userInfo.rewritePassword} onBlur={this.confirmPassword} onChange={this.rewritePasswordChange} className={cs('input', { 'rewrite-password': !this.userInfo.confirmPassword })}></input>
             </div> : null
         }
         {
-          this.props.type === 'register' ? <button type="button" onClick={this.register.bind(this)} className="button full" data-size="small">注册</button> :
+          this.props.type === 'register' ? <button type="button" onClick={this.register} className="button full" data-size="small">注册</button> :
             <button onClick={this.login} className="button full" data-size="small">确认登录</button>
-
         }
         <button className="button full" data-size="small" onClick={this.props.cancel}>取消</button>
       </div>

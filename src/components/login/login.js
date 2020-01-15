@@ -19,8 +19,8 @@ class Login extends Component {
     confirmPassword: true
   }
 
-  constructor(props) {
-    super(props)
+  constructor() {
+    super()
     // 获取对应的store
     this.loginModules = this.props.store.login
   }
@@ -69,8 +69,6 @@ class Login extends Component {
     window.scroll(0, 0)
   }
   login = () => {
-    console.log(this);
-    
     this.loginModules.usernameLogin({
       userName: this.userInfo.userName,
       passWord: this.userInfo.password

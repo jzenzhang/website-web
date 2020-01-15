@@ -44,7 +44,7 @@ class Home extends Component {
           <p className="slogan web-font">路漫漫其修远兮，吾将上下而求索。</p>
           <div className="center">
             <a className="article button full" target="_blank" href="https://jzenzhang.gitee.io/">博客</a>
-            <a className="button full" target="_blank" href="https://www.notion.so/jzen/8445d260d65d4722b29a5ccfa36fede4">笔记</a>
+            <a className="button full" target="_blank" href="https://www.notion.so/Note-339aa042c57d4ed98d873ce4b0a9e149">笔记</a>
             <a className="button full" target="_blank" href="https://codepen.io/jzenzhang/pens/public">codePen</a>
             <nav className="nav">
               {

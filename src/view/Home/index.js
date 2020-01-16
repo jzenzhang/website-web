@@ -11,7 +11,7 @@ import './index.scss'
 class Home extends Component {
   constructor(props) {
     super(props)
-    this.store = this.props.store.login
+    this.loginMoudle = this.props.store.loginMoudle
   }
 
   @LoginComponent
@@ -22,7 +22,7 @@ class Home extends Component {
   componentDidMount() {
     const cookie = $z.getCookie('uuid')
     if (cookie) {
-      this.store.uuidLogin()
+      this.loginMoudle.uuidLogin()
     }
   }
 
@@ -32,7 +32,7 @@ class Home extends Component {
   }
 
   logout = () => {
-    this.store.logout().then(res => {
+    this.loginMoudle.logout().then(res => {
       Toast.info(res.msg)
     })
   }
@@ -48,8 +48,8 @@ class Home extends Component {
             <a className="button full" target="_blank" href="https://codepen.io/jzenzhang/pens/public">codePen</a>
             <nav className="nav">
               {
-                this.store.loginStatus ?
-                  <div>欢迎！<i>{this.store.userInfo.userName}</i> <span onClick={this.logout} className="login a" data-size="small">退出</span></div> :
+                this.loginMoudle.loginStatus ?
+                  <div>欢迎！<i>{this.loginMoudle.userInfo.userName}</i> <span onClick={this.logout} className="login a" data-size="small">退出</span></div> :
                   <div>
                     <span onClick={this.register} className="login a" data-size="small">创建用户</span>
                     <span onClick={this.login} className="login a" data-size="small">登录</span>

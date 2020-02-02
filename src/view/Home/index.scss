@@ -2,10 +2,7 @@
 .home-box {
   height: 100%;
   .slogan {
-    position: absolute;
-    top: 150px;
-    left: 50%;
-    transform: translateX(-50%);
+    padding-top: 150px;
     font: 50px webfont;
     text-align: center;
     moz-user-select: -moz-none;
@@ -18,10 +15,7 @@
   }
   @media screen and (max-width: 420px) {
     .slogan {
-      position: absolute;
-      top: 150px;
-      left: 50%;
-      transform: translateX(-50%);
+      padding-top: 150px;
       font: 25px webfont;
       text-align: center;
       moz-user-select: -moz-none;
@@ -33,7 +27,6 @@
       user-select: none;
     }
   }
-  
   .center {
     position: absolute;
     top: 50%;

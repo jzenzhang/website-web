@@ -22,7 +22,7 @@ class Login extends Component {
   constructor(props) {
     super(props)
     // 获取对应的store
-    this.loginMoudle = this.props.store.loginMoudle
+    this.loginModule = this.props.store.loginModule
   }
   userNameChange = (e) => {
     this.userInfo.userName = e.target.value
@@ -35,7 +35,7 @@ class Login extends Component {
   }
 
   checkName = () => {
-    return this.loginMoudle.checkName({
+    return this.loginModule.checkName({
       userName: this.userInfo.userName
     }).then(res => {
       this.userInfo.checkStatus = res.success
@@ -55,7 +55,7 @@ class Login extends Component {
     }
     this.confirmPassword()
     if (!this.userInfo.checkStatus || !this.userInfo.confirmPassword) return
-    this.loginMoudle.register({
+    this.loginModule.register({
       userName: this.userInfo.userName,
       passWord: this.userInfo.password
     }).then(res => {
@@ -69,7 +69,7 @@ class Login extends Component {
     window.scroll(0, 0)
   }
   login = () => {
-    this.loginMoudle.usernameLogin({
+    this.loginModule.usernameLogin({
       userName: this.userInfo.userName,
       passWord: this.userInfo.password
     }).then((res) => {

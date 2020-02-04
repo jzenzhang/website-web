@@ -4,7 +4,7 @@ import { BrowserRouter, Route } from 'react-router-dom'
 import HomeLayout from './layout/Home'
 import ChatRoom from './components/ChatRoom/ChatRoom'
 import { drag } from './utils/index'
-var asd = drag(ChatRoom, { bottom: '200px', right: 0 })
+var asd = drag(ChatRoom, { bottom: '50px', right: 0 })
 function RouterPage() {
   return (
     <BrowserRouter>

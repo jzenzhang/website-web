@@ -47,7 +47,7 @@ export function drag(Components, props) {
     }
     render() {
       return (
-        <div draggable="true" onDragStart={e => this.drag(e)} onDragEnd={e => this.end(e)} ref={ref => this.ref = ref} className={styles.drag} style={props}>
+        <div  className={styles.drag} style={props}>
           <Components props={props} />
         </div>
       )

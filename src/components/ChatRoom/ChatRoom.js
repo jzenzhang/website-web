@@ -7,7 +7,7 @@ import ChatList from './ChatList/ChatList'
 import io from 'socket.io-client'
 import $z from 'z-formatter'
 import { observable } from 'mobx';
-const socket = io('ws://localhost:8080/')
+const socket = io('ws://106.14.225.234:8080/')
 
 @inject('store')
 @observer

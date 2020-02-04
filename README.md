@@ -71,13 +71,14 @@
 - 已实现jenkins持续集成。
 - UI模块打算单独抽出来维护。（其实也没有意义）
 - 后期实现SSR等功能。
-- 因为是个人的练手项目，填补自己的知识盲点，所以感觉有点小题大做。
-- 后端基于node的express框架搭建（[地址](https://github.com/jzenzhang/website-node)）
+- 因为是个人的练手项目，填补自己的知识盲点。
+- 后端基于node的express框架搭建（[地址](https://gitee.com/jzenzhang/website-node)）
 
 已经实现的功能:
 - [x] 注册
 - [x] 登录
 - [x] 全局Toast
+- [x] 多人聊天室
 - [ ] 个人页面
 - [ ] markdown编辑器
 - [ ] 权限管理

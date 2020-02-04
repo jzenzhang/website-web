@@ -1,4 +1,9 @@
+.chatroom-icon {
+  height: 40px !important;
+  width: 40px !important;
+}
 .chatroom{
+  position: relative;
   display: flex;
   box-sizing: border-box;
   flex-direction: column;
@@ -11,6 +16,13 @@
 
 .textarea{
   height: 50px;
+}
+.close{
+  padding: 5px 10px 10px 5px;
+  position: absolute;
+  top: -12px;
+  left: 0;
+  font-size: 20px;
 }
 
 .submit{

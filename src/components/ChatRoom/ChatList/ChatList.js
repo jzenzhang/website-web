@@ -15,9 +15,22 @@ const left = {
   textAlign: 'left'
 }
 
-const icon = {
+const iconRight = {
   display: 'inline-block',
   marginLeft: '10px',
+  border: '1px solid #666666',
+  width: '30px',
+  height: '30px',
+  lineHeight: '24px',
+  textAlign: 'center',
+  borderRadius: '50%',
+  fontSize: '30px',
+  fontWeight: 'bold',
+  userSelect: 'none'
+}
+const iconLeft = {
+  display: 'inline-block',
+  marginRight: '10px',
   border: '1px solid #666666',
   width: '30px',
   height: '30px',
@@ -36,20 +49,18 @@ const context = {
 }
 
 function ListItem(props) {
-  console.log(props.item);
-
   if (props.item.userName === props.localName) {
     return (
       <div style={right}>
         <span style={context}>{props.item.msg}</span>
-        <span style={icon}>{props.item.userName.slice(0,1)}</span>
+        <span style={iconRight}>{props.item.userName.slice(0,1)}</span>
       </div>
     )
   }
 
   return (
     <div style={left}>
-        <span style={icon}>{props.item.userName.slice(0,1)}</span>
+        <span style={iconLeft}>{props.item.userName.slice(0,1)}</span>
         <span style={context}>{props.item.msg}</span>
       </div>
   )
@@ -64,10 +75,8 @@ class ChatList extends React.Component {
     this.loginModule = this.props.store.loginModule
   }
   render() {
-    console.log(this.props.chatList);
-
     return (
-      <div className={styles.chatlist}>
+      <div ref={chatlistDom=>this.chatlistDom = chatlistDom} className={styles.chatlist}>
         {
           this.props.chatList.map((item, index) => (
             <ListItem key={index} item={item} localName={this.loginModule.userInfo.userName} />

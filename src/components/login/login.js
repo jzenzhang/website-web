@@ -3,6 +3,9 @@ import { observer, inject } from 'mobx-react';
 import cs from 'classnames'
 import Toast from '../Toast'
 import './login.scss'
+
+import styles from './index.module.scss'
+
 import { observable } from 'mobx';
 
 import { Button } from '../index'
@@ -96,7 +99,7 @@ class Login extends Component {
               <input type="password" value={this.userInfo.rewritePassword} onBlur={this.confirmPassword} onChange={this.rewritePasswordChange} className={cs('input', { 'rewrite-password': !this.userInfo.confirmPassword })}></input>
             </div> : null
         }
-        <div>
+        <div className={styles.footer_wrap}>
           {
             this.props.type === 'register' ? <Button onClick={this.register}>注册</Button> :
               <Button onClick={this.login}>登录</Button>

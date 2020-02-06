@@ -54,9 +54,9 @@ class Home extends Component {
         <Bg></Bg>
         <div className="home">
           <p className="slogan web-font">路漫漫其修远兮，吾将上下而求索。</p>
-          <Dialog visbility={this.state.visbility} onConfirm={e => this.a(e)}>
+          {/* <Dialog visbility={this.state.visbility} onConfirm={e => this.a(e)}>
             <Button></Button>
-          </Dialog>
+          </Dialog> */}
           <div className="center">
             <a className="article button full" target="_blank" href="https://jzenzhang.gitee.io/">博客</a>
             <a className="button full" target="_blank" href="https://www.notion.so/Note-339aa042c57d4ed98d873ce4b0a9e149">笔记</a>

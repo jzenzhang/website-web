@@ -1,14 +1,15 @@
 import React from 'react'
+import cs from 'classnames'
 import styles from './index.module.scss'
 
-function Button(props){
-    if(!!props.text){
+function Button(props) {
+    if (!!props.text) {
         return (
             <div>123</div>
         )
     }
     return (
-    <div onClick={()=>props.onClick()} className={styles.button_wrap}>{props.children}</div>
+        <div style={props.style || null} onClick={props.onClick ? () => props.onClick() : null} className={cs(styles.button_wrap, props.className || null)}>{props.children}</div>
     )
 }
 

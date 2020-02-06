@@ -9,77 +9,31 @@
 ```js
 ├── LICENSE
 ├── README.md
+├── build
 ├── config
-│   ├── env.js
-│   ├── jest
-│   │   ├── cssTransform.js
-│   │   └── fileTransform.js
-│   ├── modules.js
-│   ├── paths.js
-│   ├── pnpTs.js
-│   ├── webpack.config.js
-│   └── webpackDevServer.config.js
 ├── package-lock.json
 ├── package.json
 ├── public
-│   ├── favicon.png
-│   ├── index.html
-│   └── manifest.json
 ├── scripts
-│   ├── build.js
-│   ├── start.js
-│   └── test.js
 └── src
-    ├── assets
-    ├── components
-    │   ├── HomePage                        //bg组件
-    │   │   ├── bg.js
-    │   │   └── bg.scss
-    │   └── login                           //登录组件
-    │       ├── index.js
-    │       ├── login.js
-    │       └── login.scss
-    ├── index.js
-    ├── index.scss
-    ├── router.js
-    ├── setupProxy.js
-    ├── store                               //公共状态管理
-    │   ├── index.js
-    │   └── moudles                         //公共状态管理模块
-    │       └── login.js
-    ├── styles
-    │   ├── animate.scss
-    │   ├── iconfont.scss
-    │   └── ui                              // UI模块
-    │       ├── base.scss
-    │       ├── button
-    │       │   └── button.scss
-    │       ├── index.scss
-    │       ├── input
-    │       │   └── input.scss
-    │       └── reset.scss
-    ├── utils                                //方法库
-    │   └── fetch.js
-    └── view
-        ├── about
-        │   └── about.js
-        ├── index.js
-        └── index.scss
+    ├── app.js // 入口文件
+    ├── components // 组件
+    ├── index.scss // 全局样式
+    ├── layout // 页面布局
+    ├── router.js // 路由入口
+    ├── setupProxy.js // 反代配置
+    ├── store // 全局状态store
+    ├── styles //样式文件
+    ├── utils // 工具,如fetch等
+    └── view // 页面
 ```
 
-- 采用[create-react-app](https://github.com/facebook/create-react-app)脚手架生成，后集成[mobx](https://github.com/mobxjs/mobx)作为公共状态管理，使用自己的开源函数库[z-formatter](https://github.com/jzenzhang/z-formatter)作为方法库。
-- 已实现jenkins持续集成。
-- UI模块打算单独抽出来维护。（其实也没有意义）
-- 后期实现SSR等功能。
-- 因为是个人的练手项目，填补自己的知识盲点。
-- 后端基于node的express框架搭建（[地址](https://gitee.com/jzenzhang/website-node)）
+- 采用[create-react-app](https://github.com/facebook/create-react-app)脚手架生成，后集成[mobx](https://github.com/mobxjs/mobx)作为公共状态管理，使用个人函数库[z-formatter](https://github.com/jzenzhang/z-formatter)作为方法库。
+- 已实现jenkins持续集成（8081端口）。
+- 个人的练手项目，填补自己的知识盲点。
 
 已经实现的功能:
-- [x] 注册
 - [x] 登录
+- [x] 注册
 - [x] 全局Toast
 - [x] 多人聊天室
-- [ ] 个人页面
-- [ ] markdown编辑器
-- [ ] 权限管理
-...更多功能畅想中

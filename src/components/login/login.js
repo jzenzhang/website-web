@@ -5,6 +5,7 @@ import Toast from '../Toast'
 import './login.scss'
 import { observable } from 'mobx';
 
+import { Button } from '../index'
 // 注入store
 @inject('store')
 // 声明响应式组件
@@ -95,11 +96,13 @@ class Login extends Component {
               <input type="password" value={this.userInfo.rewritePassword} onBlur={this.confirmPassword} onChange={this.rewritePasswordChange} className={cs('input', { 'rewrite-password': !this.userInfo.confirmPassword })}></input>
             </div> : null
         }
-        {
-          this.props.type === 'register' ? <button type="button" onClick={this.register} className="button full" data-size="small">注册</button> :
-            <button onClick={this.login} className="button full" data-size="small">确认登录</button>
-        }
-        <button className="button full" data-size="small" onClick={this.props.cancel}>取消</button>
+        <div>
+          {
+            this.props.type === 'register' ? <Button onClick={this.register}>注册</Button> :
+              <Button onClick={this.login}>登录</Button>
+          }
+          <Button onClick={this.props.cancel}>取消</Button>
+        </div>
       </div>
     )
   }

@@ -6,12 +6,18 @@ import $z from 'z-formatter'
 import Toast from '../../components/Toast'
 import './index.scss'
 
+import { Dialog } from '../../components/index'
+import { Button } from '../../components/index'
+
 @inject('store')
 @observer
 class Home extends Component {
   constructor(props) {
     super(props)
     this.loginModule = this.props.store.loginModule
+    this.state = {
+      visbility: true
+    }
   }
 
   @LoginComponent
@@ -36,12 +42,21 @@ class Home extends Component {
       Toast.info(res.msg)
     })
   }
+
+  a = (e) => {
+    console.log(e);
+
+  }
+
   render() {
     return (
       <div className='home-box'>
         <Bg></Bg>
         <div className="home">
           <p className="slogan web-font">路漫漫其修远兮，吾将上下而求索。</p>
+          <Dialog visbility={this.state.visbility} onConfirm={e => this.a(e)}>
+            <Button></Button>
+          </Dialog>
           <div className="center">
             <a className="article button full" target="_blank" href="https://jzenzhang.gitee.io/">博客</a>
             <a className="button full" target="_blank" href="https://www.notion.so/Note-339aa042c57d4ed98d873ce4b0a9e149">笔记</a>

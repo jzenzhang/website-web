@@ -6,7 +6,6 @@ import {Button} from '../index'
 import LoginComponent from '../login/index'
 import ChatList from './ChatList/ChatList'
 import io from 'socket.io-client'
-import $z from 'z-formatter'
 import { observable } from 'mobx';
 const socket = io('ws://106.14.225.234:8080/')
 
@@ -42,8 +41,7 @@ class ChatRoom extends React.Component {
 
   @LoginComponent
   submit = () => {
-    const cookie = $z.getCookie('uuid')
-    if (!cookie) {
+    if (!this.loginModule.loginState) {
       this.LoginComponent.show()
       return false
     }

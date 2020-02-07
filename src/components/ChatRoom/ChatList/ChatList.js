@@ -32,7 +32,7 @@ const contextRight = {
   maxWidth: '80%',
   wordBreak: 'break-all',
   boxSizing: 'border-box',
-  background: '#cccccc',
+  background: '#dddddd',
   minHeight: '20px',
   lineHeight: '20px',
   padding: '5px 10px',

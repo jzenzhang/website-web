@@ -41,7 +41,7 @@ class ChatRoom extends React.Component {
 
   @LoginComponent
   submit = () => {
-    if (!this.loginModule.loginState) {
+    if (!this.loginModule.loginStatus) {
       this.LoginComponent.show()
       return false
     }

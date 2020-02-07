@@ -2,10 +2,10 @@ import React from 'react'
 import cs from 'classnames'
 import styles from './ChatRoom.module.scss'
 import { inject, observer } from 'mobx-react';
+import {Button} from '../index'
 import LoginComponent from '../login/index'
 import ChatList from './ChatList/ChatList'
 import io from 'socket.io-client'
-import $z from 'z-formatter'
 import { observable } from 'mobx';
 const socket = io('ws://106.14.225.234:8080/')
 
@@ -41,8 +41,7 @@ class ChatRoom extends React.Component {
 
   @LoginComponent
   submit = () => {
-    const cookie = $z.getCookie('uuid')
-    if (!cookie) {
+    if (!this.loginModule.loginStatus) {
       this.LoginComponent.show()
       return false
     }
@@ -59,7 +58,7 @@ class ChatRoom extends React.Component {
         <div onClick={this.close} className={styles.close}>×</div>
         <ChatList chatList={this.chatModule.chatList}></ChatList>
         <textarea className={styles.textarea} value={this.chatText} onChange={this.changeChatText}></textarea>
-        <button className={styles.submit} onClick={this.submit}>确定</button>
+        <Button className={styles.submit} onClick={this.submit}>确定</Button>
       </div>
       : 
       <svg onClick={this.showChat} className={cs('icon', styles['chatroom-icon'])} aria-hidden="true">

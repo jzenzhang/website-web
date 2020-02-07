@@ -10,7 +10,7 @@ import './index.scss'
 require('http://at.alicdn.com/t/font_1196994_did4jv5v2ai.js')
 require('http://at.alicdn.com/t/font_1196994_did4jv5v2ai.css')
 
-$z.setCookie('uuid','')
+// $z.setCookie('uuid','')
 
 ReactDOM.render(<Provider store={store}><RouterPage /></Provider>, document.getElementById('root'));
 

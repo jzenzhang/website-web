@@ -12,15 +12,15 @@ export function drag(Components, props) {
     }
 
     drag(e) {
-      e.target.style.opacity = 0.4
+      // console.log(this.ref);
+      
+      // e.target.style.opacity = 0.4
     }
     end(e) {
       console.log(e.target.getBoundingClientRect());
 
     }
     down(e) {
-      console.info(e);
-
       e.stopPropagation();
       document.onmousemove = (event) => {
         this.ref.style.left = event.clientX - 20 + 'px'
@@ -31,7 +31,6 @@ export function drag(Components, props) {
       e.stopPropagation();
       if (e.clientX >= document.body.clientWidth / 2) {
         this.ref.style.right = 0
-        this.ref.style.left = null
         this.setState({
           right: true,
           left: false
@@ -47,7 +46,7 @@ export function drag(Components, props) {
     }
     render() {
       return (
-        <div  className={styles.drag} style={props}>
+        <div ref={refs => this.ref = refs}  className={styles.drag} style={props}>
           <Components props={props} />
         </div>
       )

@@ -6,8 +6,8 @@ import $z from 'z-formatter'
 import Toast from '../../components/Toast'
 import './index.scss'
 
-import { Dialog } from '../../components/index'
-import { Button } from '../../components/index'
+// import { Dialog } from '../../components/index'
+// import { Button } from '../../components/index'
 
 @inject('store')
 @observer
@@ -47,6 +47,9 @@ class Home extends Component {
     console.log(e);
 
   }
+  push = () => {
+    this.props.history.push('/asd')
+  }
 
   render() {
     return (
@@ -57,10 +60,14 @@ class Home extends Component {
           {/* <Dialog visbility={this.state.visbility} onConfirm={e => this.a(e)}>
             <Button></Button>
           </Dialog> */}
+          
           <div className="center">
-            <a className="article button full" target="_blank" href="https://jzenzhang.gitee.io/">博客</a>
-            <a className="button full" target="_blank" href="https://www.notion.so/Note-339aa042c57d4ed98d873ce4b0a9e149">笔记</a>
-            <a className="button full" target="_blank" href="https://codepen.io/jzenzhang/pens/public">codePen</a>
+            <div>
+              <a className="article button full" target="_blank" rel="noopener noreferrer" href="https://jzenzhang.gitee.io/">博客</a>
+              <a className="button full" target="_blank" rel="noopener noreferrer" href="https://www.notion.so/Note-339aa042c57d4ed98d873ce4b0a9e149">笔记</a>
+              <a className="button full" target="_blank" rel="noopener noreferrer" href="https://codepen.io/jzenzhang/pens/public">codePen</a>
+              <a className="button full" target="_blank" rel="noopener noreferrer" href onClick={this.push}>关于我</a>
+            </div>
             <nav className="nav">
               {
                 this.loginModule.loginStatus ?

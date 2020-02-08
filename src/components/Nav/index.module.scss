@@ -1,0 +1,17 @@
+.nav_wrap{
+  box-sizing: border-box;
+  height: 50px;
+  padding: 10px;
+  background: rgba(0 ,0,0,.2);
+}
+.container{
+  float: right;
+  a{
+    cursor: pointer;
+    font-size: 12px;
+    margin-right: 20px;
+  }
+  div{
+    float: right;
+  }
+}

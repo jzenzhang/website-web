@@ -1,7 +1,6 @@
 import React from 'react'
 import { inject, observer } from 'mobx-react';
 import styles from './ChatList.module.scss'
-import $z from 'z-formatter'
 
 
 const right = {

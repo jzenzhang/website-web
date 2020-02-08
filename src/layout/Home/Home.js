@@ -7,7 +7,7 @@ import styles from './Home.module.scss'
 function HomeLayout() {
   return (
     <div className={styles.app}>
-      <Route exact path="/" component={Home} />
+      <Route exact path="/home" component={Home} />
       <Footer />
     </div>
   )

@@ -48,7 +48,7 @@ class Home extends Component {
 
   }
   push = () => {
-    this.props.history.push('/asd')
+    this.props.history.push('/about_me')
   }
 
   render() {

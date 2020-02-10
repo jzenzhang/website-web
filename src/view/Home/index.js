@@ -66,7 +66,7 @@ class Home extends Component {
               <a className="article button full" target="_blank" rel="noopener noreferrer" href="https://jzenzhang.gitee.io/">博客</a>
               <a className="button full" target="_blank" rel="noopener noreferrer" href="https://www.notion.so/Note-339aa042c57d4ed98d873ce4b0a9e149">笔记</a>
               <a className="button full" target="_blank" rel="noopener noreferrer" href="https://codepen.io/jzenzhang/pens/public">codePen</a>
-              <a className="button full" target="_blank" rel="noopener noreferrer" href onClick={this.push}>关于我</a>
+              {/* <a className="button full" target="_blank" rel="noopener noreferrer" href onClick={this.push}>关于我</a> */}
             </div>
             <nav className="nav">
               {

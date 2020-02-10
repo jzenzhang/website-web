@@ -7,8 +7,8 @@ import styles from './Aboutme.module.scss'
 function AboutmeLayout(props) {
   return (
     <div className={styles.wrap}>
-      <Nav history={props.history} className='nav'></Nav>
-      <Aboutme></Aboutme>
+      <Nav {...props} className='nav'></Nav>
+      <Aboutme {...props}></Aboutme>
       <Footer></Footer>
     </div>
   )

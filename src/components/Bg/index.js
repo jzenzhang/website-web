@@ -4,8 +4,8 @@ import './bg.scss'
 class Bg extends PureComponent {
   constructor() {
     super()
-    this.WIDTH = document.body.clientWidth
-    this.HEIGHT = document.body.clientHeight
+    this.width = document.body.clientWidth
+    this.height = document.body.clientHeight
   }
   creating = () => {
     const canvas = this.bg
@@ -17,7 +17,7 @@ class Bg extends PureComponent {
       X = 0,
       Y = 0
 
-    const WIDTH = document.body.clientWidth, HEIGHT = document.body.clientHeight
+    const width = document.body.clientWidth, height = document.body.clientHeight
 
     // 点击事件
     canvas.onclick = function (e) {
@@ -54,8 +54,8 @@ class Bg extends PureComponent {
     Round_item.prototype.move = function () {
       this.y -= 0.15;
       if (this.y <= -100) {
-        this.x = Math.random() * WIDTH
-        this.y = HEIGHT + 100;
+        this.x = Math.random() * width
+        this.y = height + 100;
       }
       this.draw();
     }
@@ -63,7 +63,7 @@ class Bg extends PureComponent {
     // 渲染
 
     function animate() {
-      content.clearRect(0, 0, WIDTH, HEIGHT)
+      content.clearRect(0, 0, width, height)
       for (var i in round) {
         round[i].move();
       }
@@ -73,7 +73,7 @@ class Bg extends PureComponent {
     // 初始化
     function init() {
       for (var i = 0; i < number; i++) {
-        round[i] = new Round_item(i, Math.random() * WIDTH, Math.random() * HEIGHT);
+        round[i] = new Round_item(i, Math.random() * width, Math.random() * height);
         round[i].draw(i);
       }
       animate()
@@ -87,7 +87,7 @@ class Bg extends PureComponent {
 
   render() {
     return (
-      <canvas WIDTH={this.WIDTH} HEIGHT={this.HEIGHT} ref={(ref) => this.bg = ref} id="bg"></canvas>
+      <canvas width={this.width} height={this.height} ref={(ref) => this.bg = ref} id="bg"></canvas>
     )
   }
 }

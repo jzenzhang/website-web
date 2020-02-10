@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React from 'react'
 import Bg from '../../components/Bg/index'
 import LoginComponent from '../../components/login'
 import { inject, observer } from 'mobx-react';
@@ -11,7 +11,7 @@ import './index.scss'
 
 @inject('store')
 @observer
-class Home extends Component {
+class Home extends React.Component {
   constructor(props) {
     super(props)
     this.loginModule = this.props.store.loginModule
@@ -43,12 +43,9 @@ class Home extends Component {
     })
   }
 
-  a = (e) => {
-    console.log(e);
-
-  }
-  push = () => {
-    this.props.history.push('/about_me')
+  push = (e) => {
+    e.preventDefault()
+    this.props.history.push('/ncov')
   }
 
   render() {
@@ -66,7 +63,7 @@ class Home extends Component {
               <a className="article button full" target="_blank" rel="noopener noreferrer" href="https://jzenzhang.gitee.io/">博客</a>
               <a className="button full" target="_blank" rel="noopener noreferrer" href="https://www.notion.so/Note-339aa042c57d4ed98d873ce4b0a9e149">笔记</a>
               <a className="button full" target="_blank" rel="noopener noreferrer" href="https://codepen.io/jzenzhang/pens/public">codePen</a>
-              {/* <a className="button full" target="_blank" rel="noopener noreferrer" href onClick={this.push}>关于我</a> */}
+              <a className="button full" target="_blank" rel="noopener noreferrer" href='###' onClick={this.push}>抗击疫情</a>
             </div>
             <nav className="nav">
               {

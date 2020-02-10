@@ -1,13 +1,12 @@
 import React from 'react'
-import { Route } from 'react-router-dom'
 import Home from '../../view/Home/index'
 import Footer from '../../components/Footer/index'
 import styles from './Home.module.scss'
 
-function HomeLayout() {
+function HomeLayout(props) {
   return (
     <div className={styles.app}>
-      <Route exact path="/home" component={Home} />
+      <Home {...props}></Home>
       <Footer />
     </div>
   )

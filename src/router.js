@@ -11,7 +11,7 @@ function RouterPage() {
     <BrowserRouter>
       <Switch>
         <Route path="/home" exact component={HomeLayout} />
-        <Route path="/about_me" component={AboutmeLayout} />
+        <Route path="/ncov" component={AboutmeLayout} />
         <Redirect from="/*" to="/home" />
       </Switch>
       <Route path="/" component={ChatModule}></Route>

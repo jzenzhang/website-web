@@ -10,11 +10,11 @@ class Ncov {
 
   @action
   ncovCity = (data) => {
-    return new Promise(() => {
+    return new Promise((resolve) => {
       fetchApi('/api/ncovCity', {
         data
       }).then(res => {
-        console.log(res);
+        resolve(JSON.parse(res.data.body).newslist)
       })
     })
   }

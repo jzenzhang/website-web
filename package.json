@@ -3,6 +3,8 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@antv/l7": "^2.0.18",
+    "@antv/l7-maps": "^2.0.18",
     "@babel/core": "7.4.3",
     "@babel/plugin-proposal-decorators": "^7.7.4",
     "@svgr/webpack": "4.1.0",
@@ -19,6 +21,7 @@
     "css-loader": "2.1.1",
     "dotenv": "6.2.0",
     "dotenv-expand": "4.2.0",
+    "echarts": "^4.6.0",
     "eslint": "^5.16.0",
     "eslint-config-react-app": "^4.0.1",
     "eslint-loader": "2.1.2",

@@ -204,6 +204,9 @@ module.exports = function (webpackEnv) {
               // https://github.com/facebook/create-react-app/issues/5250
               // Pending futher investigation:
               // https://github.com/terser-js/terser/issues/120
+              drop_console: true,
+              drop_debugger: true,
+              pure_funcs: ['console.log'],
               inline: 2,
             },
             mangle: {
@@ -479,13 +482,6 @@ module.exports = function (webpackEnv) {
     },
     plugins: [
       // Generates an `index.html` file with the <script> injected.
-      new webpack.optimize.UglifyJsPlugin({
-        compress: {
-          warnings: false,
-          drop_debugger: true,
-          drop_console: true
-        }
-      }),
       new HtmlWebpackPlugin(
         Object.assign(
           {},

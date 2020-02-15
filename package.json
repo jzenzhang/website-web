@@ -77,7 +77,8 @@
   "scripts": {
     "start": "node scripts/start.js",
     "build": "node scripts/build.js",
-    "test": "node scripts/test.js"
+    "test": "node scripts/test.js",
+    "push": "scp -r * root@106.14.225.234:/home/nginx/html"
   },
   "eslintConfig": {
     "extends": "react-app"

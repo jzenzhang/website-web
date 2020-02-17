@@ -7,7 +7,7 @@ WORKDIR /home/nginx/www
 
 #  将Dockerfile当前目录下所有文件拷贝至容器内项目目录并安装项目依赖
 COPY . /home/nginx/www
-RUN npm install
+RUN npm install 
 
 # 容器对外暴露的端口号，要和node项目配置的端口号一致
 

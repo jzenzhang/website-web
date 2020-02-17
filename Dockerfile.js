@@ -1,5 +1,5 @@
 # 基础镜像为node，版本为v9.2.0
-FROM node:8.10.0
+FROM node:8.10.0 
 
 # 创建容器内的项目存放目录
 RUN mkdir -p /home/nginx/www

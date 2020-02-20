@@ -6,7 +6,7 @@ class Login {
     extendObservable(this, {
       loginStatus: false,
       userInfo: {
-        userName: ''
+        name: ''
       }
     })
   }
@@ -17,7 +17,7 @@ class Login {
         data
       }).then(res => {
         if (res.success) {
-          this.userInfo.userName = res.data.userName
+          this.userInfo = res.data
           this.changeLogin(true)
         }
         resolve(res)
@@ -25,9 +25,9 @@ class Login {
     })
   }
 
-  @action checkName = (data) => {
+  @action checkId = (data) => {
     return new Promise((resolve) => {
-      fetchApi('/api/login/checkName', {
+      fetchApi('/api/login/checkId', {
         data
       }).then(res => {
         resolve(res)
@@ -39,7 +39,7 @@ class Login {
     return new Promise((resolve) => {
       fetchApi('/api/login/uuid', {}).then((res) => {
         if (res.success) {
-          this.userInfo.userName = res.data.userName
+          this.userInfo = res.data
           this.changeLogin(true)
         }
         resolve(res)
@@ -47,13 +47,13 @@ class Login {
     })
   }
 
-  @action usernameLogin = (data) => {
+  @action userIdLogin = (data) => {
     return new Promise((resolve) => {
-      fetchApi('/api/login/username', {
+      fetchApi('/api/login/userIdLogin', {
         data
       }).then((res) => {
         if (res.success) {
-          this.userInfo.userName = res.data.userName
+          this.userInfo = res.data
           this.changeLogin(true)
         }
         resolve(res)

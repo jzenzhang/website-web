@@ -7,7 +7,7 @@ import LoginComponent from '../login/index'
 import ChatList from './ChatList/ChatList'
 import io from 'socket.io-client'
 import { observable } from 'mobx';
-const socket = io('ws://106.14.225.234:8080/')
+const socket = io('ws://localhost:8081/')
 
 @inject('store')
 @observer
@@ -48,7 +48,7 @@ class ChatRoom extends React.Component {
     if(!this.chatText){
       return 
     }
-    socket.emit('message', { userName: this.loginModule.userInfo.userName, msg: this.chatText })
+    socket.emit('message', { name: this.loginModule.userInfo.name, msg: this.chatText })
     this.chatText = ''
   }
   render() {

@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { observer, inject } from 'mobx-react';
+import md5 from 'js-md5'
 import cs from 'classnames'
 import Toast from '../Toast'
 import './login.scss'
@@ -16,7 +17,8 @@ import { Button } from '../index'
 class Login extends Component {
   // 声明响应式属性
   @observable userInfo = {
-    userName: '',
+    name: '',
+    userId: '',
     password: '',
     checkStatus: true,
     rewritePassword: '',
@@ -28,8 +30,11 @@ class Login extends Component {
     // 获取对应的store
     this.loginModule = this.props.store.loginModule
   }
-  userNameChange = (e) => {
-    this.userInfo.userName = e.target.value
+  nameChange = (e) => {
+    this.userInfo.name = e.target.value
+  }
+  userIdChange = (e) => {
+    this.userInfo.userId = e.target.value
   }
   passwordChange = (e) => {
     this.userInfo.password =  e.target.value
@@ -38,9 +43,9 @@ class Login extends Component {
     this.userInfo.rewritePassword = e.target.value
   }
 
-  checkName = () => {
-    return this.loginModule.checkName({
-      userName: this.userInfo.userName
+  checkId = () => {
+    return this.loginModule.checkId({
+      userId: this.userInfo.userId
     }).then(res => {
       this.userInfo.checkStatus = res.success
       return Promise.resolve(res)
@@ -53,15 +58,16 @@ class Login extends Component {
   }
 
    register = async () => {
-    var res = await this.checkName()
+    var res = await this.checkId()
     if (!res.success) {
       return
     }
     this.confirmPassword()
     if (!this.userInfo.checkStatus || !this.userInfo.confirmPassword) return
-    this.loginModule.register({
-      userName: this.userInfo.userName,
-      passWord: this.userInfo.password
+     this.loginModule.register({
+      name: this.userInfo.name,
+      userId: this.userInfo.userId,
+      passWord: this.userInfo.password ? md5(this.userInfo.password) : ''
     }).then(res => {
       if (res.success) {
         Toast.info(res.msg)
@@ -73,9 +79,9 @@ class Login extends Component {
     window.scroll(0, 0)
   }
   login = () => {
-    this.loginModule.usernameLogin({
-      userName: this.userInfo.userName,
-      passWord: this.userInfo.password
+    this.loginModule.userIdLogin({
+      userId: this.userInfo.userId,
+      passWord: this.userInfo.password ? md5(this.userInfo.password) : ''
     }).then((res) => {
       if (res.success) {
         this.props.cancel()
@@ -86,9 +92,15 @@ class Login extends Component {
   render() {
     return (
       <div className="login">
+        {
+          this.props.type === 'register' ? <div>
+            <p>昵称</p>
+            <input value={this.userInfo.name} onChange={this.nameChange} className='input'></input>
+          </div> : null
+        }
         <div className={cs({ 'username-info': !this.userInfo.checkStatus })}>
           <p>用户名:</p>
-          <input value={this.userInfo.userName} onBlur={this.reset} onChange={this.userNameChange} className={cs('input', { username: !this.userInfo.checkStatus })}></input>
+          <input value={this.userInfo.userId} onBlur={this.reset} onChange={this.userIdChange} className={cs('input', { username: !this.userInfo.checkStatus })}></input>
         </div>
         <p>密码:</p>
         <input type="password" value={this.userInfo.password} onBlur={this.reset} onChange={this.passwordChange} className="input"></input>

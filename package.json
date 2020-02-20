@@ -18,6 +18,7 @@
     "camelcase": "^5.2.0",
     "case-sensitive-paths-webpack-plugin": "2.2.0",
     "classnames": "^2.2.6",
+    "crypto-js": "^4.0.0",
     "css-loader": "2.1.1",
     "dotenv": "6.2.0",
     "dotenv-expand": "4.2.0",
@@ -41,6 +42,7 @@
     "jest-environment-jsdom-fourteen": "0.1.0",
     "jest-resolve": "24.7.1",
     "jest-watch-typeahead": "0.3.0",
+    "js-md5": "^0.7.3",
     "mini-css-extract-plugin": "0.5.0",
     "mobx": "^5.15.0",
     "mobx-react": "^5.4.4",
@@ -78,7 +80,7 @@
     "start": "node scripts/start.js",
     "build": "node scripts/build.js",
     "test": "node scripts/test.js",
-    "push": "scp -r * root@106.14.225.234:/home/nginx/html"
+    "push": "npm run build && scp -r build/* root@106.14.225.234:/home/nginx/www"
   },
   "eslintConfig": {
     "extends": "react-app"

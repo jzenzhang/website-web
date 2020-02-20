@@ -19,7 +19,6 @@ class Chat {
     }
     @action changeChatList = (data) => {
         this.chatList.push(data)
-        
     }
 }
 export default Chat

@@ -22,7 +22,7 @@ const iconRight = {
   lineHeight: '26px',
   textAlign: 'center',
   borderRadius: '3px',
-  fontSize: '30px',
+  fontSize: '16px',
   fontWeight: 'bold',
   userSelect: 'none'
 }
@@ -46,7 +46,7 @@ const iconLeft = {
   lineHeight: '26px',
   textAlign: 'center',
   borderRadius: '3px',
-  fontSize: '30px',
+  fontSize: '16px',
   fontWeight: 'bold',
   userSelect: 'none'
 }
@@ -63,10 +63,10 @@ const contextLeft = {
 }
 
 function ListItem(props) {
-  if (props.item.userName === props.localName) {
+  if (props.item.name === props.localName) {
     return (
       <div style={right}>
-        <div style={iconRight}>{props.item.userName.slice(0, 1)}</div>
+        <div style={iconRight}>{props.item.name.slice(0, 1)}</div>
         <div style={contextRight}>{props.item.msg}</div>
       </div>
     )
@@ -74,7 +74,7 @@ function ListItem(props) {
 
   return (
     <div style={left}>
-      <span style={iconLeft}>{props.item.userName.slice(0, 1)}</span>
+      <span style={iconLeft}>{props.item.name.slice(0, 1)}</span>
       <span style={contextLeft}>{props.item.msg}</span>
     </div>
   )
@@ -96,7 +96,7 @@ class ChatList extends React.Component {
       <div ref={chatlistDom => this.chatlistDom = chatlistDom} className={styles.chatlist}>
         {
           this.props.chatList.map((item, index) => (
-            <ListItem key={index} item={item} localName={this.loginModule.userInfo.userName} />
+            <ListItem key={index} item={item} localName={this.loginModule.userInfo.name} />
           ))
         }
       </div>

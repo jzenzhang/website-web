@@ -68,7 +68,7 @@ class Home extends React.Component {
             <nav className="nav">
               {
                 this.loginModule.loginStatus ?
-                  <div>欢迎！<i>{this.loginModule.userInfo.userName}</i> <span onClick={this.logout} className="login a" data-size="small">退出</span></div> :
+                  <div>欢迎！<i>{this.loginModule.userInfo.name}</i> <span onClick={this.logout} className="login a" data-size="small">退出</span></div> :
                   <div>
                     <span onClick={this.register} className="login a" data-size="small">创建用户</span>
                     <span onClick={this.login} className="login a" data-size="small">登录</span>

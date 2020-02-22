@@ -7,7 +7,7 @@ import LoginComponent from '../login/index'
 import ChatList from './ChatList/ChatList'
 import io from 'socket.io-client'
 import { observable } from 'mobx';
-const socket = io('ws://localhost:8081/')
+const socket = io('ws://106.14.225.234:8081/')
 
 @inject('store')
 @observer

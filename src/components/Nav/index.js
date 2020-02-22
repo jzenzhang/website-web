@@ -45,7 +45,7 @@ class Nav extends React.Component {
           <a className="button full" target="_blank" rel="noopener noreferrer" href="https://codepen.io/jzenzhang/pens/public">codePen</a>
           {
             this.loginModule.loginStatus ?
-              <div>欢迎！<i>{this.loginModule.userInfo.userName}</i> <a href="true" onClick={this.logout} className="login a" data-size="small">退出</a></div> :
+              <div>欢迎！<i>{this.loginModule.userInfo.name}</i> <a href="true" onClick={this.logout} className="login a" data-size="small">退出</a></div> :
               <div>
                 <a href="true" onClick={this.register} data-size="small">创建用户</a>
                 <a href="true" onClick={this.login} data-size="small">登录</a>

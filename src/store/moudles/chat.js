@@ -13,7 +13,7 @@ class Chat {
             fetchApi('/api/chat', {
                 data
             }).then(res => {
-                console.log(res);
+                resolve(res)
             })
         })
     }

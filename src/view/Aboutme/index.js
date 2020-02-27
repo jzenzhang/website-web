@@ -1,8 +1,8 @@
 import React from 'react'
 import { inject, observer } from 'mobx-react'
 
-import { Scene, PolygonLayer, LineLayer, Control } from '@antv/l7';
-import { Mapbox } from '@antv/l7-maps';
+import { Scene } from '@antv/l7';
+import { GaodeMap } from '@antv/l7-maps';
 import data from '../../asset/data.json'
 import chinagData from '../../asset/中国.json'
 import ChinaLayer from '../../components/Ncov/ChinaLayer'
@@ -29,7 +29,7 @@ class About extends React.Component {
     }).then(res => {
       const scene = new Scene({
         id: "map",
-        map: new Mapbox({
+        map: new GaodeMap({
           center: [112.3956, 34.9392],
           doubleClickZoom: false,
           pitch: 0,

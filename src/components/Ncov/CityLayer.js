@@ -1,6 +1,6 @@
 import React from 'react'
-import { LineLayer, PolygonLayer, PointLayer, Control, Scene } from "@antv/l7";
-import { Mapbox } from '@antv/l7-maps';
+import { LineLayer, PolygonLayer, PointLayer, Scene } from "@antv/l7";
+import { GaodeMap } from '@antv/l7-maps';
 import { info, legend, title } from './Control'
 import ChinaLayer from './ChinaLayer'
 const colors = ['rgb(106,33,29)', 'rgb(144,55,53)', 'rgb(181,78,76)', 'rgb(211,104,101)', 'rgb(227,147,131)', 'rgba(255,255,255,0.8)'].reverse();
@@ -67,7 +67,7 @@ export default class CityLayer extends React.Component {
     this.china.on('undblclick', (e) => {
       const scene = new Scene({
         id: "map",
-        map: new Mapbox({
+        map: new GaodeMap({
           center: [112.3956, 34.9392],
           doubleClickZoom: false,
           pitch: 0,

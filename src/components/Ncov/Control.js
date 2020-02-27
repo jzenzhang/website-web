@@ -1,4 +1,4 @@
-import { LineLayer, PolygonLayer, PointLayer, Control, Layers } from "@antv/l7";
+import { Control } from "@antv/l7";
 import './style.scss'
 const colors = ['rgb(106,33,29)', 'rgb(144,55,53)', 'rgb(181,78,76)', 'rgb(211,104,101)', 'rgb(227,147,131)', 'rgba(255,255,255,0.8)'].reverse()
 
